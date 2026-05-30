@@ -1,0 +1,29 @@
+[
+  {
+    "orderId": "order_Si2DSM1SyBnYnT",
+    "paymentId": "pay_Si2DhvWIdnUzcs",
+    "fullName": "fardeen joad",
+    "email": "aakib5460@gmail.com",
+    "phone": "7566789999",
+    "address1": "soslsl",
+    "address2": "",
+    "city": "sikar",
+    "state": "Rajasthan",
+    "pincode": "332301",
+    "items": [
+      {
+        "id": 1,
+        "name": "Ultra Pro Smartwatch Series 9",
+        "quantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Portable USB Personal Blender",
+        "quantity": 1
+      }
+    ],
+    "total": 2998,
+    "status": "Paid",
+    "createdAt": "2026-04-26T07:13:50.361Z"
+  }
+]
