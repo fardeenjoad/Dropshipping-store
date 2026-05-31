@@ -458,6 +458,13 @@ const getTrackingNumber = async (cjOrderId) => {
         carrier: data.data?.logisticName || "Delhivery",
         status: data.data?.trackingNumber ? "shipped" : "processing"
       };
+    } else if (data?.message === 'Interface not found') {
+      // Handle incorrect API route gracefully without crashing the sync loop
+      return {
+        trackingNumber: null,
+        carrier: "Pending",
+        status: "processing"
+      };
     } else {
       throw new Error(data?.message || 'CJ tracking lookup failed');
     }
