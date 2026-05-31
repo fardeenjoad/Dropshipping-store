@@ -94,7 +94,8 @@ export default function CheckoutPage() {
         return;
       }
 
-      const orderRes = await fetch("http://localhost:5000/api/create-order", {
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+      const orderRes = await fetch(`${API_BASE_URL}/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: total }),
@@ -117,7 +118,8 @@ export default function CheckoutPage() {
         description: "Order Payment",
         order_id: orderData.orderId,
         handler: async function (response: any) {
-          const verifyRes = await fetch("http://localhost:5000/api/verify-payment", {
+          const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+          const verifyRes = await fetch(`${API_BASE_URL}/verify-payment`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
