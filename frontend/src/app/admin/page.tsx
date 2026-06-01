@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { fetchProducts } from '@/services/api';
+import { fetchProducts, adminFetchAllOrders } from '@/services/api';
 import { ShoppingBag, Receipt, IndianRupee, TrendingUp, AlertCircle, Clock, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -36,16 +36,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const loadStats = async () => {
       try {
-        const token = localStorage.getItem('dropzone_token');
-        
-        const ordersRes = await fetch('http://localhost:5000/api/orders', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
-        });
-        if (!ordersRes.ok) throw new Error('Failed to fetch admin orders');
-        const ordersData = await ordersRes.json();
+        const ordersData = await adminFetchAllOrders();
         setOrders(ordersData);
 
         const productsData = await fetchProducts();
