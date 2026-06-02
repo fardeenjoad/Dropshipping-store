@@ -24,7 +24,7 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false);
   
   const freeShippingThreshold = 499;
-  const shipping = 0; // Temporarily set to 0 for testing (or permanently for free shipping)
+  const shipping = subtotal > freeShippingThreshold ? 0 : 99;
   const total = subtotal + shipping;
 
   const [formData, setFormData] = useState({
